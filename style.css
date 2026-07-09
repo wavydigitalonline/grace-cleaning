@@ -1,22 +1,22 @@
 /* =========================================================
    Chau Pest Control & Hygiene — design tokens + components
-   Theme: alternating white/charcoal sections (mirrors the
-   business card's white/charcoal split), orange accent,
-   green as a signature secondary touch.
+   Theme: alternating soft-green/charcoal sections, sage
+   green accent throughout, brand green as a deeper signature
+   touch (WhatsApp fab, footer credit).
    ========================================================= */
 
 :root {
-  --accent: #f2994a;
-  --accent-light: #f7b273;
+  --accent: #6fa878;
+  --accent-light: #8ec298;
   --accent-foreground: #1c1c1e;
   --brand-green: #3d9a5f;
 }
 
 /* Light section theme */
 .theme-light {
-  --bg: #faf8f5;
+  --bg: #f2f7f3;
   --surface: #ffffff;
-  --surface-elevated: #f2efe9;
+  --surface-elevated: #e9f2eb;
   --border: rgba(0, 0, 0, 0.08);
   --text: #1c1c1e;
   --muted: #6b6b6f;
@@ -43,30 +43,25 @@ section[id] { scroll-margin-top: 6rem; }
 .muted-text { color: var(--muted); }
 .accent-text { color: var(--accent); }
 
-::selection { background: rgba(242, 153, 74, 0.35); color: #1c1c1e; }
+::selection { background: rgba(111, 168, 120, 0.35); color: #1c1c1e; }
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #201f1d; }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 9999px; }
 
-/* ---------- logo mark (inline, no image needed) ---------- */
+/* ---------- logo mark (image placeholder — drop logo.png into /images) ---------- */
 .logo-mark {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  display: block;
   height: 40px;
   width: 40px;
   border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent-light), var(--brand-green));
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
 }
 .logo-mark-lg { height: 64px; width: 64px; border-radius: 16px; }
-.logo-quad { display: block; }
-.logo-quad.q1 { background: #9a9a9e; } /* top-left: grey */
-.logo-quad.q2 { background: var(--accent); } /* top-right: orange (was green on card) */
-.logo-quad.q3 { background: var(--brand-green); } /* bottom-left: green */
-.logo-quad.q4 { background: #9a9a9e; } /* bottom-right: grey */
 
 /* ---------- header ---------- */
 #site-header.scrolled { background: rgba(28, 28, 30, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding-top: 0.6rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -87,7 +82,7 @@ section[id] { scroll-margin-top: 6rem; }
   display: inline-flex; align-items: center; gap: 0.5rem;
   border-radius: 9999px; background: linear-gradient(135deg, var(--accent-light), var(--accent));
   color: var(--accent-foreground); padding: 0.75rem 1.4rem; font-size: 0.9rem; font-weight: 600;
-  box-shadow: 0 14px 34px -12px rgba(242, 153, 74, 0.55);
+  box-shadow: 0 14px 34px -12px rgba(111,168,120,0.55);
   border: 0; cursor: pointer; text-decoration: none; transition: filter 0.2s ease, transform 0.15s ease;
 }
 .btn-accent:hover { filter: brightness(1.06); transform: translateY(-1px); }
@@ -104,7 +99,7 @@ section[id] { scroll-margin-top: 6rem; }
 /* ---------- hero ---------- */
 .hero-overlay { background: linear-gradient(180deg, rgba(20,18,15,0.55) 0%, rgba(20,18,15,0.86) 55%, #202023 100%); }
 .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 0.4rem 0.9rem; font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.85); }
-@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(242,153,74,0.55); } 50% { box-shadow: 0 0 0 6px rgba(242,153,74,0); } }
+@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(111,168,120,0.55); } 50% { box-shadow: 0 0 0 6px rgba(111,168,120,0); } }
 .pulse-dot { display: inline-block; animation: pulseDot 2s ease-in-out infinite; }
 .hero-chip { display: flex; align-items: center; gap: 0.5rem; border-radius: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 0.85rem; font-weight: 500; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -126,12 +121,12 @@ section[id] { scroll-margin-top: 6rem; }
 .split-icon-sm { display: grid; place-items: center; height: 2.75rem; width: 2.75rem; border-radius: 0.75rem; background: var(--accent); color: var(--accent-foreground); flex-shrink: 0; }
 .service-row { display: flex; align-items: center; gap: 0.75rem; border-radius: 0.75rem; border: 1px solid var(--border); background: var(--surface); padding: 0.75rem 1rem; font-size: 0.9rem; font-weight: 500; transition: all 0.25s ease; }
 .service-row:hover { border-color: var(--accent); transform: translateX(2px); }
-.service-row-icon { display: grid; place-items: center; height: 2rem; width: 2rem; border-radius: 0.5rem; background: rgba(242,153,74,0.12); color: var(--accent); flex-shrink: 0; }
+.service-row-icon { display: grid; place-items: center; height: 2rem; width: 2rem; border-radius: 0.5rem; background: rgba(111,168,120,0.12); color: var(--accent); flex-shrink: 0; }
 
 /* ---------- feature cards ---------- */
 .feature-card { border-radius: 1rem; border: 1px solid var(--border); background: var(--surface); padding: 1.5rem; transition: border-color 0.3s ease; }
 .feature-card:hover { border-color: var(--accent); }
-.feature-icon { display: grid; place-items: center; height: 3rem; width: 3rem; border-radius: 0.75rem; background: rgba(242,153,74,0.12); color: var(--accent); flex-shrink: 0; }
+.feature-icon { display: grid; place-items: center; height: 3rem; width: 3rem; border-radius: 0.75rem; background: rgba(111,168,120,0.12); color: var(--accent); flex-shrink: 0; }
 
 /* ---------- split cards (commercial/residential) ---------- */
 .split-card { position: relative; border-radius: 1.5rem; border: 1px solid var(--border); background: var(--surface); padding: 2rem; box-shadow: 0 20px 50px -20px rgba(0,0,0,0.15); }
@@ -159,14 +154,14 @@ section[id] { scroll-margin-top: 6rem; }
 
 /* ---------- final CTA panel ---------- */
 .cta-panel { background: linear-gradient(135deg, #26221d, #1a1816); position: relative; overflow: hidden; }
-.cta-panel::before { content: ""; position: absolute; top: -4rem; right: -4rem; height: 18rem; width: 18rem; border-radius: 9999px; background: rgba(242,153,74,0.22); filter: blur(60px); }
+.cta-panel::before { content: ""; position: absolute; top: -4rem; right: -4rem; height: 18rem; width: 18rem; border-radius: 9999px; background: rgba(111,168,120,0.22); filter: blur(60px); }
 .cta-panel::after { content: ""; position: absolute; bottom: -5rem; left: -3rem; height: 18rem; width: 18rem; border-radius: 9999px; background: rgba(61,154,95,0.15); filter: blur(60px); }
 .cta-panel > * { position: relative; z-index: 1; }
 
 /* ---------- contact ---------- */
 .contact-card { display: block; border-radius: 1rem; border: 1px solid var(--border); background: var(--surface); padding: 1.5rem; transition: all 0.3s ease; }
 .contact-card:hover { border-color: var(--accent); }
-.contact-icon { display: grid; place-items: center; height: 2.75rem; width: 2.75rem; border-radius: 0.75rem; background: rgba(242,153,74,0.12); color: var(--accent); }
+.contact-icon { display: grid; place-items: center; height: 2.75rem; width: 2.75rem; border-radius: 0.75rem; background: rgba(111,168,120,0.12); color: var(--accent); }
 
 /* ---------- quote form ---------- */
 .quote-form-card { border-radius: 1.5rem; border: 1px solid var(--border); background: var(--surface); padding: 2rem; }
