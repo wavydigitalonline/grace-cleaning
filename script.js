@@ -1,5 +1,5 @@
 /* =========================================================
-   Chau Pest Control & Hygiene — vanilla JS interactivity
+   Grace Cleaning Services — vanilla JS interactivity
    No frameworks, no build step. Loaded with `defer`.
    ========================================================= */
 
@@ -104,7 +104,7 @@
       "\nMessage: " + (data.message || "-");
 
     var mailtoLink =
-      "mailto:davidchauke783@gmail.com" +
+      "mailto:gracecleaningservices@gmail.com" +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
 
